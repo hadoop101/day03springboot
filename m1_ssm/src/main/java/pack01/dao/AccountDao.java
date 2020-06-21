@@ -4,4 +4,6 @@ import pack01.bean.Account;
 
 public interface AccountDao {
     Account find(long l);
+
+    void update(Account account);
 }

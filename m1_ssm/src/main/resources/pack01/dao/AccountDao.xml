@@ -6,4 +6,7 @@
     <select id="find" parameterType="long" resultType="account">
         select * from account where id = #{id}
     </select>
+    <update id="update" parameterType="account">
+        update account set account = #{account},money =#{money} where id = #{id}
+    </update>
 </mapper>

@@ -7,6 +7,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import pack01.bean.Account;
 import pack01.dao.AccountDao;
+import pack01.service.AccountService;
 import pack01.util.MySessionUtil;
 
 public class TestSSM {
@@ -32,5 +33,15 @@ public class TestSSM {
         //3:增删改查
         Account account = accountDao.find(1001L);
         System.out.println(account);
+    }
+
+    @Test
+    public void test03SpringAOP_TX(){
+
+        //1:获取service
+        AccountService accountService = (AccountService) new ClassPathXmlApplicationContext("spring.xml").getBean("service");
+        //2:转账 ：测试事务是否可以使用的小技巧
+        accountService.translate(1001L,1002L,1D);
+
     }
 }
