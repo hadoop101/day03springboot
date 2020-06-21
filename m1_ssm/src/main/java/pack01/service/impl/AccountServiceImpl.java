@@ -30,6 +30,7 @@ public class AccountServiceImpl implements AccountService {
         a1.setMoney(a1.getMoney()-value);
         a2.setMoney(a2.getMoney()+value);
         accountDao.update(a1);
+        //System.out.println(1/0);
         accountDao.update(a2);
     }
 }
